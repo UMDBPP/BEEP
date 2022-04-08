@@ -8,15 +8,26 @@ mixer.init()
 
 camera.resolution = (320, 240)
 
-camera.capture('wally.jpg')
+i = 0
 
-sleep(1)
+while(1):
+    camera.capture('wally.jpg')
 
-os.system('./robot36')
+    sleep(1)
 
-sleep(2)
+    os.system(f'cp wally.jpg ./pictures/image{i}.jpg')
 
-mixer.music.load('wally.wav')
-mixer.music.play()
-while mixer.music.get_busy() == True:
-    continue
+    sleep(1)
+
+    os.system('./robot36')
+
+    sleep(2)
+
+    mixer.music.load('wally.wav')
+    mixer.music.play()
+    while mixer.music.get_busy() == True:
+        continue
+
+    i = i+1
+    
+    sleep(10)
