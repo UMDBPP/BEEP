@@ -35,6 +35,7 @@ while(1):
         sleep(10)
     
     except KeyboardInterrupt:
+        camera.close()
         break
 
-camera.close()
+sleep(2)
